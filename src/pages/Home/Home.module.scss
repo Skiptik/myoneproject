@@ -1,0 +1,51 @@
+.pap1{
+    background-image: url('src/assets/images/bgHeader/1.png');
+    width: 56.22031rem;
+    height: 46.54125rem;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: 10vmin;
+    position: absolute;
+    background-size: contain;
+    bottom: -200px;
+    z-index: 3;
+    /* Скрываем блок на экранах шириной более 1121px */
+    @media (max-width: 1919px) or (min-width: 1921px)  {
+        display: none;
+    }  
+}
+
+.pap2 {
+    background-image: url('/src/assets/images/bgHeader/пап прав.png'); /* исправленный путь */
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+    position: absolute;
+    background-size: contain;
+    bottom: -300px;
+    right: 0;
+    z-index: 2;
+
+    /* Скрываем блок на экранах шириной более 1121px */
+    @media (max-width: 1919px) or (min-width: 1921px)  {
+        display: none;
+    } 
+}
+
+
+.bg{
+    position: relative;
+    &::after{
+        content: '';
+        background-image: url('/src/assets/images/bgSecond/листья.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 1000px;
+        top: 0;
+    }
+}

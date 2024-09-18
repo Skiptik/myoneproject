@@ -1,0 +1,62 @@
+header{
+    height: clamp(740px, 52.08vw, 1000px);
+    background: linear-gradient(256deg, #032314 40.17%, #030401 85.11%);
+    position: relative;
+    color: #C8DB31;
+    z-index: 1;
+    .bg {
+        position: relative;
+    
+        &::after {
+            content: "";
+            position: absolute;
+            background: url(/src/assets/images/bgHeader/птичка.png) no-repeat left bottom;
+            background-size: contain;
+            bottom: -182px;
+            width: 52rem;
+            height: 840px;
+            right: -15rem;
+            @media (max-width: 1919px) {
+                right: clamp(-5rem, 30rem, 20vw);
+                width: clamp(52rem, 10rem, 60vw);
+                display: none;
+
+            }
+        }
+        &::before {
+            content: '';
+            background-image: url('src/assets/images/bgHeader/green-palm-leaf-from\ 3.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            width: 100%;
+            top: -16rem;
+            height: 1000px;
+            z-index: -1;
+        }
+    }    
+    .title{
+        position: relative;
+        font-family: Ablation;
+        font-size: clamp(1rem, 15vw, 11.5rem);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 82.14%;
+        padding-top: clamp(0px, 45px, 63px);
+        margin-bottom: 38px;
+    }
+    & .subtitle{
+        position: relative;
+        z-index: 3;
+        width: 44.16669rem;
+        font-size: 1.33331rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 138%; /* 1.84rem */
+        margin-bottom: 70px;
+    }
+    .btn{
+        position: relative;
+        margin-bottom: 108px;
+    }
+}

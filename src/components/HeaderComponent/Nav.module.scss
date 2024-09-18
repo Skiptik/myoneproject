@@ -1,0 +1,10 @@
+.hover {
+  font-family: Montserrat;
+  font-size: 24px;
+  color: #c8db31;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+    color: #c8db31;
+  }
+}

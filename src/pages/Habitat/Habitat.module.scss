@@ -1,0 +1,36 @@
+.header {
+    background-color: none;
+    border: none;
+    button {
+      background-color: transparent; /* Изменить цвет фона */
+      color: #C8DB31; /* Изменить цвет текста */
+      opacity: .5;
+      border: none;
+      border-radius: 0;
+      &::after{
+        margin-left: 10px;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23C8DB31' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+      }
+        
+      &:hover {
+        color: #C8DB31!important;
+        opacity: 1!important;
+      }
+  
+      &:active {
+        background-color: transparent; /* Убрать стандартную фокусную обводку */
+      }
+      &:focus{
+        box-shadow: none;
+      }
+      &:not(.collapsed){
+        background-color: transparent;
+        border-bottom: 1px solid white;
+        color: #C8DB31;
+        opacity: .5;
+        &::after{
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23c8db3185' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+        }
+      }
+    }
+  }

@@ -1,0 +1,37 @@
+.third{
+    position: relative;
+    .title{
+        color: #C8DB31;
+        font-family: "Ablation";
+        font-size: 3rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 110%;
+        margin: 250px 0 115px 0;
+    }
+    .cardlist{
+        margin-bottom: 70px;
+    }
+    .btn{
+        border-radius: 2.18344rem;
+        background: #C8DB31;
+        padding: 1.6875rem 4rem;
+        justify-content: center;
+        align-items: center;
+        gap: 0.625rem;
+        color: #040601;
+        font-family: Muller;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 1.75813rem; 
+    }
+    .banner{
+        margin-top: 250px;
+        margin-bottom: 250px;
+        height: 521px;
+        background-image: url('/src/assets/images/баннер.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}

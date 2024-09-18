@@ -1,0 +1,22 @@
+footer{
+    color: #C8DB31;
+    .footerBlock{
+        padding-top: 33px;
+    }
+    .icon{
+        display: block;
+        width: 31px;
+        height: 31px;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .vk{
+        background-image: url('/src/assets/images/icon/Vector.svg');
+    }
+    .telegram{
+        background-image: url('/src/assets/images/icon/icons8-телеграмма-app.svg');
+    }
+    .gmail{
+        background-image: url('/src/assets/images/icon/icons8-gmail.svg');
+    }
+}

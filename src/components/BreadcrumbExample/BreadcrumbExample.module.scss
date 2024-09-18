@@ -1,0 +1,29 @@
+.breadcrumb {
+  border-radius: 5px;
+  margin-bottom: 50px;
+
+  .breadcrumb__item {
+    color: #4e4e4e;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    &::before {
+      content: " ➔ ";
+      color: #4e4e4e;
+    }
+
+    &:first-child::before {
+      content: "";
+    }
+  }
+  .active {
+    color: #c8db31;
+
+    &::before {
+      color: #c8db31;
+    }
+  }
+}

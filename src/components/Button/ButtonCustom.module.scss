@@ -1,0 +1,24 @@
+.btn_active{
+    color: #040601;
+    //color: #ffffff;
+    font-family: Muller;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 1.75813rem; /* 175.81% */
+    // border: 1px solid #C8DB31;
+    background: #C8DB31;
+    border: none;
+    border-radius: 2.18344rem;
+    padding: 1.35rem 2.5rem;
+    &:hover{
+        color: #fff;
+        background: #004F29;
+    }
+    &:active{
+        color: #040601;
+        border: 1px solid #C8DB31;
+        background: none;
+        color: #fff;
+    }
+}

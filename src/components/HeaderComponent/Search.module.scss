@@ -1,0 +1,38 @@
+.formcontrol{
+    border-radius: 1.04169rem;
+    background: #000;
+    opacity: 0.3;
+    border: none;
+    color: rgba(199, 218, 50, 0.50);
+    font-family: Syne;
+    font-size: 1.16669rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 82.14%; /* 0.95831rem */
+    &::placeholder{
+        color: rgba(199, 218, 50, 0.50);
+    }
+    &:focus{
+        color: #000000f6;
+        box-shadow: none;
+        opacity: 1;
+        &::placeholder{
+            color: #000000b0;
+        }
+    }
+}
+
+.search{
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    & :hover{
+        background-color:transparent;
+    }
+}
+
+.search:hover{
+    background-color:transparent;
+}

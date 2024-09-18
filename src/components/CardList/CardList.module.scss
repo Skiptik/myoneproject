@@ -1,0 +1,20 @@
+.cardList {
+  gap: 70px 0;
+  // display: grid;
+  // grid-template-columns: repeat(3, 415px); /* 3 колонки по 415px */
+  // grid-template-rows: repeat(4, auto);
+  // column-gap: 62px;
+  // row-gap: 62px;
+  // margin-top: 120px;
+  // margin-bottom: 120px;
+
+  // @media (max-width: 1440px) {
+  //   /* Для экранов меньше 768px */
+  //   grid-template-columns: repeat(2, 415px); /* 2 колонки */
+  // }
+
+  // @media (max-width: 1080px) {
+  //   /* Для экранов меньше 576px */
+  //   grid-template-columns: 415px; /* 1 колонка */
+  // }
+}

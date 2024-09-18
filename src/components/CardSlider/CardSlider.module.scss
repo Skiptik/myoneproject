@@ -1,0 +1,28 @@
+.cardSlider {
+  max-width: max-content;
+  position: relative;
+}
+
+.cardContainer {
+  gap: 70px;
+}
+
+.navigationButton {
+  display: flex;
+  border: none;
+  background-color: inherit;
+  width: 22px;
+  height: 37px;
+  position: absolute;
+  top: 228px;
+}
+
+.navigationButtonLeft {
+  background-image: url(../../assets/images/CardSlider/arrow-left.svg);
+  left: -60px;
+}
+
+.navigationButtonRight {
+  background-image: url(../../assets/images/CardSlider/arrow-right.svg);
+  right: -60px;
+}

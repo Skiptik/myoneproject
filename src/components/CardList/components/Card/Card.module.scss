@@ -1,0 +1,96 @@
+.card{
+  cursor: pointer;
+  height: 415px;
+  position: relative;
+  &:last-child{
+    margin-bottom: 250px;
+  }
+  .bg{
+    width: 415px;
+    height: 415px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .subCard{
+    width: calc(94.5% - var(--bs-gutter-x)* 0.5 + var(--bs-gutter-x)* 0.5);
+    height: 170px;
+    max-height: clamp(50px, 50vw, 170px);
+    position: absolute;
+    bottom: 0;
+    padding-right: calc(var(--bs-gutter-x)* .5);
+    padding-left: calc(var(--bs-gutter-x)* .5);
+    padding-top: 38px;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(16.649999618530273px);
+    
+    .title{
+      color: #FFF;
+      font-family: Montserrat;
+      font-size: 1.5rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    .subTitle{
+      color: #FFF;
+      font-family: Montserrat;
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; // количество строк
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+}
+
+
+
+
+
+
+// .cardList {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: end;
+//   width: 415px;
+//   height: 415px;
+//   background: #171717;
+// }
+
+
+
+// .cardList__blurContainer {
+//   background: rgba(255, 255, 255, 0.1);
+//   backdrop-filter: blur(16px);
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+//   min-height: 170px;
+//   padding-top: 38px;
+//   padding-left: 46px;
+//   padding-right: 46px;
+//   padding-bottom: 50px;
+//   overflow: hidden;
+// }
+
+// .cardList__title,
+// .cardList__text {
+//   color: #fff;
+//   font-family: Montserrat;
+//   font-style: normal;
+//   line-height: normal;
+// }
+
+// .cardList__title {
+//   font-size: 32px; // Уменьшите размер заголовка для лучшего отображения
+//   font-weight: 700;
+// }
+
+// .cardList__text {
+//   font-size: 14px;
+//   font-weight: 400;
+//   text-align: left;
+// }

@@ -1,0 +1,70 @@
+$pagination-bg: none;
+$pagination-color: #c8db31;
+$pagination-border-color: #004922;
+$pagination-border-radius: 20px;
+$pagination-border-width: 2px;
+$pagination-item-size: 50px;
+$pagination-gap: 18px;
+
+// Основной стиль пагинации
+.pagination {
+  --bs-pagination-bg: $pagination-bg;
+  --bs-pagination-color: $pagination-color;
+  --bs-pagination-border-color: $pagination-border-color;
+  --bs-pagination-border-radius: $pagination-border-radius;
+  --bs-pagination-border-width: $pagination-border-width;
+  gap: $pagination-gap;
+}
+
+// Элементы пагинации
+.pagination__item {
+  width: $pagination-item-size;
+  height: $pagination-item-size;
+  border: $pagination-border-color $pagination-border-width solid;
+  border-radius: $pagination-border-radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    width: 25px;
+    height: 25px;
+    padding: 25px;
+    border: none;
+    color: $pagination-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+// Стили для предыдущего и следующего элементов
+.pagination__item_prev,
+.pagination__item_next {
+  background-color: $pagination-color;
+  border: none;
+
+  a {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+}
+
+.pagination__item_prev a {
+  background-image: url(../../assets/images/PaginationList/ArrowPaginationLeft.svg);
+}
+
+.pagination__item_next a {
+  background-image: url(../../assets/images/PaginationList/ArrowPaginationRight.svg);
+}
+
+.pagination__item_next a span,
+.pagination__item_prev a span {
+  display: none;
+}
