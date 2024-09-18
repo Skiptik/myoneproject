@@ -4,6 +4,7 @@ import Layout from '../../../components/Layout/Layout';
 import { Accordion, Col, Row } from 'react-bootstrap';
 import styles from "./Detail.module.scss"
 import Card from '../../../components/CardList/components/Card/Card';
+import EditAdmin from '../../../components/EditAdmin/EditAdmin';
 
 const HabitatDetail = () => {
   const { id } = useParams(); // Получаем параметр id из URL
@@ -40,49 +41,61 @@ const HabitatDetail = () => {
   const secondArray = speciesArray.slice(halfLength);
   return (
     <Layout>
-      <h1 className={`${styles.section__title} mb-5`}>{habitatDetail.title}</h1>
+      <Row>
+        <h1 className={`${styles.section__title} mb-5`}>
+          <>
+          {habitatDetail.title}<EditAdmin fetchUrl="user/info" url={"https://ecoton-backend.ivgpu.ru/admin/main/habitatareas"}/>
+          </> 
+        </h1> 
+      </Row> 
       <Row>
         <Col xxl="6">
         <p>{habitatDetail.description}</p> {/* Пример отображения описания ареала */}
         </Col>
-        <Col xxl="6">
+        <Col xxl="6" className='mb-5'>
         <p className="title">Карта распростронения</p>
         <div className="map" dangerouslySetInnerHTML={{ __html: habitatDetail.iframe_map }} />
         </Col>
       </Row>
+      <Row>
+        <h3>Обитатели ареала</h3>
+      </Row>
       <Row className='mb-5'>
-      <Col xxl="6" className="first-half">
-    {firstArray.map(([key, value], index) => (
+      {firstArray.map(([key, value], index) => (
+      <Col xxl="6" className="first-half d-flex align-items-center mb-3 text-wrap">
+      <>
+      <img src={value.photo} alt="" className={`${styles.img} me-2`}/>
       <Accordion.Item 
           key={key} 
-          className={`${styles.item} mt-5 mb-1`} 
+          className={`${styles.item} mb-1`} 
           eventKey={key}
           onClick={() => handleClick(value.id)}  // Используем value.id при клике
         >
           <Accordion.Header className={`${styles.header}`}>
             {`${value.title || key}`} {/* Нумеруем элементы для отображения */}
           </Accordion.Header>
-          {/* Здесь можно также отобразить Accordion.Body, если нужно */}
-        </Accordion.Item>
-    ))}
+        </Accordion.Item>      
+      </>
   </Col>
-  
-  <Col xxl="6" className="second-half">
-    {secondArray.map(([key, value], index) => (
-     <Accordion.Item 
-     key={key} 
-     className={`${styles.item} mt-5 mb-1`} 
-     eventKey={key}
-     onClick={() => handleClick(value.id)}  // Используем value.id при клике
-   >
-     <Accordion.Header className={`${styles.header}`}>
-       {`${value.title || key}`} {/* Нумеруем элементы для отображения */}
-     </Accordion.Header>
-     {/* Здесь можно также отобразить Accordion.Body, если нужно */}
-   </Accordion.Item>
+  ))}
+  {secondArray.map(([key, value], index) => (
+  <Col xxl="6" className="first-half d-flex align-items-center mb-3 text-wrap">
+  <>
+  <img src={value.photo} alt="" className={`${styles.img} me-2`}/>
+  <Accordion.Item 
+      key={key} 
+      className={`${styles.item} mb-1`} 
+      eventKey={key}
+      onClick={() => handleClick(value.id)}  // Используем value.id при клике
+    >
+      <Accordion.Header className={`${styles.header}`}>
+        {`${value.title || key}`} {/* Нумеруем элементы для отображения */}
+      </Accordion.Header>
+    </Accordion.Item>      
+  </>
+</Col>
     ))}
-  </Col>
-      </Row>
+    </Row>
     </Layout>
   );
 };

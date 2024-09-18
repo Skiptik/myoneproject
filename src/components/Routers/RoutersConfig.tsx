@@ -41,8 +41,7 @@ const RoutesConfig = () => {
         } 
       />
         <Route path="/section/:id" element={<ListSpecies />} />
-        <Route path="/section/:id_species?/:id_animal" element={<Animal />} />
-        <Route path="/animal/:id_animal" element={<Animal />} />
+        <Route path="/animal/:id" element={<Animal />} />
         <Route path="/habitat" element={<Habitat />} />
         <Route path="/habitat/:id" element={<HabitatDetail />} />
       </Routes>

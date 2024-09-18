@@ -78,7 +78,7 @@ const ProfileInfo = ({fetchUrl, dataKey = ""}) => {
           <ProfileSwiper title={'Мои любимчики'} data={cardsData.favorites}></ProfileSwiper>
         </Row>
         <Row>
-          <ProfileSwiper title={'Эко галлерея'} data={cardsData.user_gallery}></ProfileSwiper>
+          <ProfileSwiper title={'Ваши фотографии редких видов'} data={cardsData.user_gallery}></ProfileSwiper>
         </Row>
       </div>
     </div>

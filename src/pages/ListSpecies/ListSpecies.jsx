@@ -7,12 +7,12 @@ const ListSpecies = () => {
     const { id } = useParams();
     return (
         <Layout>
-          <div className={styles.section}>
+          <div className={`{styles.section} mb-5`}>
                 <h1 className={styles.section__title}>Виды</h1>
                 <CardList 
                     fetchUrl={`species/list?type=${id}`} 
                     dataKey="species" 
-                    navigatePath={`{id}`}
+                    navigatePath={`/animal/{id}`}
                 />
             </div>
         </Layout>

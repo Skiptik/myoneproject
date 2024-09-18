@@ -5,29 +5,10 @@ import Layout from "../../components/Layout/Layout";
 import styles from "./Animal.module.scss"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import EditAdmin from "../../components/EditAdmin/EditAdmin";
 const Animal = () => {
-  const cardsData = [
-    {
-      title: "Заголовок 1",
-      text: "Текст под заголовком 1",
-      buttonText: "В коллекцию",
-      imageUrl: "/src/assets/images/CardSlider/slide1.png",
-    },
-    {
-      title: "Заголовок 2",
-      text: "Текст под заголовком 2",
-      buttonText: "В коллекцию",
-      imageUrl: "/src/assets/images/CardSlider/slide2.png",
-    },
-    {
-      title: "Заголовок 3",
-      text: "Текст под заголовком 3",
-      buttonText: "В коллекцию",
-      imageUrl: "/src/assets/images/CardSlider/slide3.png",
-    },
-    // Добавьте больше карточек по мере необходимости
-  ];
-  const [animalCard, setAnimalCard ] = useState([])
+  const [animalCard, setAnimalCard ] = useState({ habitat_area: [''] })
+  console.log(animalCard)
   const keyTranslations = {
     taxonomy: "Классификация",
     status: "Статус",
@@ -47,9 +28,9 @@ const Animal = () => {
     if (key === "taxonomy") {
       // Специальная обработка taxonomy, так как это объект
       result[keyTranslations[key]] = {
-        first: animalCard.descr_string_first,
-        second: animalCard.descr_string_second,
-        third: animalCard.descr_string_third
+        first: animalCard.international_name,
+        second: animalCard.squad,
+        third: animalCard.family
       };
     } else if (animalCard[key]) {
       // Для других полей, если они существуют в animalCard, добавляем их
@@ -57,9 +38,8 @@ const Animal = () => {
     }
     return result;
   }, {});
-  const {id_animal} = useParams()
-  
-  const fetchUrl = `species/detail?id=${id_animal}`
+  const {id} = useParams()
+  const fetchUrl = `species/detail?id=${id}`
   useEffect(() => {
     if (!fetchUrl) return;
     fetch("https://ecoton-backend.ivgpu.ru/"+`${fetchUrl}`, {
@@ -72,17 +52,20 @@ const Animal = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data); // Отладочный вывод данных
         setAnimalCard(data); // Устанавливаем данные, используя ключ dataKey
       })
       .catch((error) => {
         console.error('Error:', error);
       });
   }, []);
+  
+  const handleNavigate = () => {
+
+  }
     return (
       <Layout>
         <Row>
-            <h1 className={styles.section__title}>{animalCard.title}</h1>
+            <h1 className={styles.section__title}>{animalCard.title} <EditAdmin fetchUrl={"user/info"} url={"https://ecoton-backend.ivgpu.ru/admin/main/redbookspecies"}/></h1>
         </Row>
         <Row className={`align-items-center`}>
           <Col xxl="6">
@@ -112,25 +95,26 @@ const Animal = () => {
           </Accordion>
           </Col>
         </Row>
-        <Row>
+        <Row className="mb-5">
           <Col xxl="6" className={`${styles.map}`}>
-          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae8bc61af4361e5d4f4f7f4338d67a53799734919c8500ef6ef38d8944002f76c&amp;source=constructor" width="612" height="523" frameborder="0"></iframe>
+          <div className="map" dangerouslySetInnerHTML={{ __html: animalCard.iframe_map }} />
           </Col>
           <Col xxl="6">
             <h2>Места обитания</h2>
+            {Object.entries(animalCard.habitat_area).map(([key, value], index) => (
+              <Accordion.Item 
+                key={key} 
+                className={`${styles.item} mt-5 mb-1`} 
+                eventKey={key}
+                onClick={() => handleNavigate(value.id)} // Используем value.id при клике
+              >
+                <Accordion.Header className={`${styles.header}`}>
+                  {`${index + 1}. ${value.title || key}`} {/* Нумеруем элементы для отображения */}
+                </Accordion.Header>
+              </Accordion.Item>
+            ))}
           </Col>
         </Row>
-        <Row>
-      {cardsData.map((card, index) => (
-            <Card
-              title={card.title}
-              text={card.text}
-              buttonText={card.buttonText}
-              imageUrl={card.imageUrl}
-            />
-  
-        ))}
-      </Row>
       </Layout>
     );
   };

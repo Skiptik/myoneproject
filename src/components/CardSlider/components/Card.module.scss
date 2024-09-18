@@ -2,22 +2,24 @@
 //   width: 372px;
 // }
 
-// .card__image {
-//   height: 452px;
+.img {
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
 //   background-color: #464c53;
 //   border-radius: 40px;
 //   margin-bottom: 34px;
-// }
+}
 
-// .card__title {
-//   color: #fff;
-//   font-family: Montserrat;
-//   font-size: 32px;
-//   font-style: normal;
-//   font-weight: 700;
-//   line-height: normal;
-//   margin-bottom: 64px;
-// }
+.card__title {
+  color: #fff;
+  font-family: "Ablation", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  max-height: 100px;
+}
 
 // .card__text {
 //   color: #fff;

@@ -44,7 +44,6 @@ const Habitat = () => {
           <Accordion.Header className={`${styles.header}`}>
             {`${index + 1}. ${value.title || key}`} {/* Нумеруем элементы для отображения */}
           </Accordion.Header>
-          {/* Здесь можно также отобразить Accordion.Body, если нужно */}
         </Accordion.Item>
       ))}
       </Row>

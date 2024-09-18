@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <div className={`${styles.pap1}`}></div>
+      {/* <div className={`${styles.pap1}`}></div> */}
       <div className={`${styles.pap2}`}></div>
       {/* Основной контент */}
       <main className={`${styles.bg} flex-grow-1`}>

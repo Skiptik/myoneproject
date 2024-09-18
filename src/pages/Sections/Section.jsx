@@ -5,7 +5,7 @@ import styles from "./Section.module.scss";
 const Section = () => {
     return (
         <Layout>
-            <div className={styles.section}>
+            <div className={`${styles.section} mb-5`}>
                 <h1 className={styles.section__title}>Разделы</h1>
                 <CardList fetchUrl={`species/types`} dataKey="types" navigatePath={`/section/{id}`}/>
             </div>

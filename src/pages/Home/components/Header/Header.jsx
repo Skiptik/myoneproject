@@ -2,7 +2,9 @@ import NavbarComponent from "/src/components/HeaderComponent/Navbar";
 import {Col, Container, Row} from 'react-bootstrap'
 import styles from "./Header.module.scss"
 import CustomButton from "/src/components/Button/ButtonCustom"
+import { useNavigate } from "react-router-dom";
 const Header = () => {
+    const navigate = useNavigate()
     return (
         <header className={`${styles.header}`} id="header">
             <NavbarComponent />
@@ -17,7 +19,7 @@ const Header = () => {
                 </Row>
                 <Row className={`${styles.btn} ${styles.bg} z-3`}>
                     <Col xxl="3" lg="3" md="4" sm="6">
-                       <CustomButton>Перейти в книгу</CustomButton>
+                       <CustomButton onClick={()=>navigate('/section')}>Перейти в разделы</CustomButton>
                     </Col>
                 </Row>
             </Container>

@@ -16,7 +16,7 @@ const NavbarComponent = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <NavCustom />
-                    <Search/>
+                    <Search search="species/list?search="/>
                 </Navbar.Collapse>
             </Navbar>
         </Container>

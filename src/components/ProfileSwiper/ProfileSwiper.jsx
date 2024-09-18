@@ -11,10 +11,10 @@ const ProfileSwiper = ({title="", data=[]}) => {
       <Row>
       {data.map((card, index) => (
         <Card
+          key={index}
           title={card.title}
-          text={card.text}
-          buttonText={card.buttonText}
-          imageUrl={card.imageUrl}
+          imageUrl={card.photo}
+          author={card.specie}
         />
         ))}
       </Row>
