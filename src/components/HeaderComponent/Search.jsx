@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Form, FormControl, Button } from 'react-bootstrap';
+import { Form, FormControl, Button, Col } from 'react-bootstrap';
 import styles from './Search.module.scss'; // пример подключения стилей, если нужно
+import { useNavigate } from 'react-router-dom';
 
-const Search = ({ search = "" }) => {
+const Search = ({ placeholder="Поиск", search = "", keyData="species", path="animal" }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [query, setQuery] = useState(''); // Состояние для хранения поискового запроса
     const [results, setResults] = useState([]); // Состояние для хранения результатов поиска
@@ -22,12 +23,11 @@ const Search = ({ search = "" }) => {
 
             try {
                 // Выполняем запрос к вашему API
-                const response = await fetch(`https://ecoton-backend.ivgpu.ru/${search}=${query}`);
+                const response = await fetch(`https://ecoton-backend.ivgpu.ru/${search}${query}`);
                 const data = await response.json();
-
                 // Проверяем, что данные содержат ключ 'species', и он является массивом
-                if (data && Array.isArray(data.species)) {
-                    setResults(data.species);
+                if (data && Array.isArray(data[keyData])) {
+                    setResults(data[keyData]);
                 } else {
                     setResults([]); // Если нет данных, сбрасываем в пустой массив
                 }
@@ -60,14 +60,17 @@ const Search = ({ search = "" }) => {
         // Выполняем поиск при отправке формы (если нужно)
         console.log('Поиск:', query);
     };
-
+    const navigate = useNavigate()
+    const HandleClick = ({id}) => {
+        navigate(`/${path}/${id}`)
+    }
     return (
         <div className="position-relative">
             <Form className="d-flex position-relative" onSubmit={handleSearch}>
                 {/* Поле ввода поиска */}
                 <FormControl
                     type="text"
-                    placeholder="Поиск"
+                    placeholder={placeholder}
                     className={`${styles.formcontrol}`} // Использование Bootstrap или кастомных стилей
                     aria-label="Search"
                     value={query}
@@ -104,13 +107,13 @@ const Search = ({ search = "" }) => {
 
             {/* Всплывающее окно с результатами поиска */}
             {showResults && (
-                <div className={`${styles.resultsWindow} position-absolute`}>
+                <Col xxl="4" className={`${styles.resultsWindow}`}>
                     {isLoading && <p>Загрузка...</p>} {/* Показываем загрузку */}
 
                     {!isLoading && results.length > 0 && (
                         <ul>
                             {results.map((result, index) => (
-                                <li key={index}>{result}</li>
+                                <li className={`${styles.li}`} onClick={()=>HandleClick(result)} key={index}>{result.title}</li>
                             ))}
                         </ul>
                     )}
@@ -118,7 +121,7 @@ const Search = ({ search = "" }) => {
                     {!isLoading && results.length === 0 && (
                         <p>Ничего не найдено</p>
                     )}
-                </div>
+                </Col>
             )}
         </div>
     );

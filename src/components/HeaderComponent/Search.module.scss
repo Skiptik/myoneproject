@@ -36,3 +36,18 @@
 .search:hover{
     background-color:transparent;
 }
+
+.resultsWindow{
+    position: absolute;
+    width: 250px;
+    max-height: 300px;
+    padding: 5px 0;
+    background-color: #04150C;
+    list-style-type: none;
+    overflow-y: auto;
+    z-index: 5;
+    .li{
+        padding: 5px 0;
+        border-bottom: wheat 1px solid;
+    }
+}

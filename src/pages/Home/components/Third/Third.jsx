@@ -3,6 +3,7 @@ import CustomButton from "/src/components/Button/ButtonCustom";
 import styles from "./Third.module.scss"
 import { useEffect, useState } from "react";
 import Card from "../../../../components/CardList/components/Card/Card";
+import { useNavigate } from "react-router-dom";
 
 // Функция для перемешивания массива (алгоритм Фишера-Йетса)
 const shuffleArray = (array) => {
@@ -18,6 +19,7 @@ const Third = () => {
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate()
   useEffect(() => {
     const fetchData = () => {
       Promise.all([
@@ -40,9 +42,6 @@ const Third = () => {
     console.log()
     fetchData(data1["types"]);
   }, []);
-    const handleNavigate = () => {
-
-    }
     return(
       <div className={`${styles.third}`}>
         <Container fluid="xxl" className="position-relative z-3">
@@ -59,13 +58,14 @@ const Third = () => {
                 text={card.text}
                 buttonText={card.buttonText}
                 bg={card.photo}
+                onClick={() => { navigate(`/section/${card.id}`); }}
               />
             ))}
           </Row>
 
           <Row>
             <Col xxl="3">
-              <CustomButton>Все разделы</CustomButton>
+              <CustomButton onClick={()=>navigate('/section')}>Все разделы</CustomButton>
             </Col>
           </Row>
 
@@ -83,6 +83,7 @@ const Third = () => {
                 text={card.text}
                 buttonText={card.buttonText}
                 bg={card.photo}
+                onClick={() => { navigate(`/animal/${card.id}`); }}
               />
             ))}
           </Row>

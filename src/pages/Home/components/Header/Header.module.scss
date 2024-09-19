@@ -16,6 +16,7 @@ header{
             width: 52rem;
             height: 840px;
             right: -15rem;
+            z-index: -1;
             @media (max-width: 1919px) {
                 right: clamp(-5rem, 30rem, 20vw);
                 width: clamp(52rem, 10rem, 60vw);

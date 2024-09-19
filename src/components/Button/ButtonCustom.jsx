@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import styles from './ButtonCustom.module.scss'
 
-const CustomButton = ({ children, className, ...rest }) => {
+const CustomButton = ({ children, className, role="",...rest }) => {
     return (
       <Button
         className={`${styles.btn_active} ${className || ''}`} // Объединяем стили

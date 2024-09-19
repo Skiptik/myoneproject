@@ -50,10 +50,11 @@ const HabitatDetail = () => {
       </Row> 
       <Row>
         <Col xxl="6">
-        <p>{habitatDetail.description}</p> {/* Пример отображения описания ареала */}
+        <div dangerouslySetInnerHTML={{ __html: habitatDetail.description}} />
         </Col>
         <Col xxl="6" className='mb-5'>
         <p className="title">Карта распростронения</p>
+        <p>Кадастровый номер: {habitatDetail.kadastr}</p>
         <div className="map" dangerouslySetInnerHTML={{ __html: habitatDetail.iframe_map }} />
         </Col>
       </Row>

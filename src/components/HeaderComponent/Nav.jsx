@@ -4,7 +4,7 @@ import styles from "./Nav.module.scss";
 import {useAuth} from '/src/components/Auth/ContextApiAuth'
 const NavCustom = () => {
   const location = useLocation();
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, logout, isAdmin } = useAuth();
   return (
     <>
       <Nav className={`me-auto`}>
@@ -43,7 +43,18 @@ const NavCustom = () => {
         </>
       )}
     </Nav>
+    {isAdmin ? (
+  <>
+    <Nav className="me-auto">
+      <Nav.Link target="_blank" className={styles.hover} href="https://ecoton-backend.ivgpu.ru/admin">
+        Админ панель
+      </Nav.Link>
+    </Nav>
+  </>
+) : null }
+
     </>
+
   );
 };
 

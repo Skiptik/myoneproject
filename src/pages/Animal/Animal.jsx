@@ -4,11 +4,12 @@ import Card from "../../components/CardSlider/components/Card";
 import Layout from "../../components/Layout/Layout";
 import styles from "./Animal.module.scss"
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import EditAdmin from "../../components/EditAdmin/EditAdmin";
+import YandexShare from "./Yandex";
 const Animal = () => {
   const [animalCard, setAnimalCard ] = useState({ habitat_area: [''] })
-  console.log(animalCard)
+  const navigate = useNavigate()
   const keyTranslations = {
     taxonomy: "Классификация",
     status: "Статус",
@@ -59,8 +60,9 @@ const Animal = () => {
       });
   }, []);
   
-  const handleNavigate = () => {
-
+  const handleNavigate = ({id}) => {
+    console.log(id)
+    navigate(`/habitat/${id}`)
   }
     return (
       <Layout>
@@ -69,6 +71,9 @@ const Animal = () => {
         </Row>
         <Row className={`align-items-center`}>
           <Col xxl="6">
+          <div className="d-flex">
+          Поделиться: <YandexShare></YandexShare>
+          </div>
             <div className={`${styles.elipce}`}>
               <img src={`${animalCard.photo}`} alt="" className={`${styles.logo}`}/>
             </div>
@@ -92,6 +97,7 @@ const Animal = () => {
             </Accordion.Body>
           </Accordion.Item>
         ))}
+        <h6 className="mt-3">Информация актуальна: {animalCard.actual_date}</h6>
           </Accordion>
           </Col>
         </Row>
@@ -106,7 +112,7 @@ const Animal = () => {
                 key={key} 
                 className={`${styles.item} mt-5 mb-1`} 
                 eventKey={key}
-                onClick={() => handleNavigate(value.id)} // Используем value.id при клике
+                onClick={() => handleNavigate(value)} // Используем value.id при клике
               >
                 <Accordion.Header className={`${styles.header}`}>
                   {`${index + 1}. ${value.title || key}`} {/* Нумеруем элементы для отображения */}

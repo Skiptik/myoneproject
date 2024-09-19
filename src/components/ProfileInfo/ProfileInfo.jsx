@@ -4,6 +4,7 @@ import profileImage from "../../assets/images/test-profile.jpg";
 import { useState, useEffect } from "react";
 import Cookies from 'js-cookie';
 import ProfileSwiper from "../ProfileSwiper/ProfileSwiper";
+import CustomButton from "../Button/ButtonCustom";
 
 const ProfileInfo = ({fetchUrl, dataKey = ""}) => {
   const [cardsData, setCardsData] = useState({});
@@ -80,6 +81,11 @@ const ProfileInfo = ({fetchUrl, dataKey = ""}) => {
         <Row>
           <ProfileSwiper title={'Ваши фотографии редких видов'} data={cardsData.user_gallery}></ProfileSwiper>
         </Row>
+        <Row className="mb-3">
+        <Col xxl="4">
+        <CustomButton>Добавить фотографии</CustomButton>
+        </Col>
+      </Row>
       </div>
     </div>
   );

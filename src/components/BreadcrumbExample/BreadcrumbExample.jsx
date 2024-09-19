@@ -29,7 +29,7 @@ function BreadcrumbExample() {
         Главная
       </Breadcrumb.Item>
 
-      {pathnames.map((value, index) => {
+      {/* {pathnames.map((value, index) => {
         const to = `/${pathnames.slice(0, index + 1).join("/")}`;
         const isLast = index === pathnames.length - 1; // Проверка, последний ли это элемент
         return (
@@ -43,7 +43,7 @@ function BreadcrumbExample() {
             {routeNames[to] || value.charAt(0).toUpperCase() + value.slice(1)}
           </Breadcrumb.Item>
         );
-      })}
+      })} */}
     </Breadcrumb>
   );
 }

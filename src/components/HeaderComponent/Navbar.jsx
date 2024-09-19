@@ -9,7 +9,7 @@ const NavbarComponent = () => {
 
     return(
         <Container>
-            <Navbar className={`${styles.navbar} z-2`} expand="lg">
+            <Navbar className={`${styles.navbar} z-4`} expand="lg">
                 <Col xxl="2">
                     <Brand />
                 </Col>
